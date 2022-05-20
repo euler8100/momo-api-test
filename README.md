@@ -4,7 +4,13 @@
 
 **Chipdeals-momo-api** is a Mobile Money API that allows you to build a quick, simple and excellent payment experience in your web and native app.This the official **Nodejs Library**
 
+
+<div style="text-align: center">
+<img src="https://www.chipdeals.me/images/code.gif" alt="Fast integration" style="width:450px; border-radius: 5px 5px 0 0"/>
+    <br/>
 Accept Payments in your node app.
+</div>
+
 
 **You can [request payment](#Collect-Money) and [send money](#Disburse-Money) to any mobile money account**
 
@@ -21,43 +27,57 @@ yarn add chipdeals-momo-api
 
 # Quick Start
 
-**Initialize Chipdeals Momo API with your API Key ([*Get apikey here*](#)) and start**
+**Initialize Chipdeals Momo API with your API Key ([*Get apikey here*](#Contact-us)) and start**
 
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=1&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520momo%2520%253D%2520require%28%27chipdeals-momo-api%27%29%253B%250Amomo.setApiKey%28%27test_FOdigzgSopV8GZggZa89%27%29%253B%250A%250A%252F%252FCollect%2520500%2520XOF%2520from%2520the%2520%252B22951010591%2520Mobile%2520Money%2520wallet.%250Amomo%250A%2520%2520.collect%28%29%250A%2520%2520.amount%28500%29%250A%2520%2520.currency%28%27XOF%27%29%250A%2520%2520.from%28%2722951010591%27%29%250A%2520%2520.create%28%29%253B%250A%250A%252F%252FSend%25202000%2520XOF%2520to%2520the%2520%252B22951010591%2520Mobile%2520Money%2520wallet.%250Amomo%250A%2520%2520.deposit%28%29%250A%2520%2520.amount%282000%29%250A%2520%2520.currency%28%27XOF%27%29%250A%2520%2520.to%28%2722951010591%27%29%250A%2520%2520.create%28%29%253B%250A"
+  style="width: 862px; height: 571px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+<!-- 
 ```javascript=
 const momo = require('chipdeals-momo-api');
 momo.setApiKey('test_FOdigzgSopV8GZggZa89');
 
-//Collect 500 XOF from the +229510150181 Mobile Money wallet.
+//Collect 500 XOF from the +22951010591 Mobile Money wallet.
 momo
   .collect()
   .amount(500)
   .currency('XOF')
-  .from('229510150181')
+  .from('22951010591')
   .create();
 
-//Send 2000 XOF to the +229510150181 Mobile Money wallet.
+//Send 2000 XOF to the +22951010591 Mobile Money wallet.
 momo
   .deposit()
   .amount(2000)
   .currency('XOF')
-  .to('229510150181')
+  .to('22951010591')
   .create();
-```
+``` -->
 
+###### Quick check possible responses with [sandbox tests](#Sandbox-tests)
 
 
 # Usage
 The package needs to be configured with your **account's API key**, which is available in the when you get access to Chipdeals Sandbox.
 
-[***You can get you apiKey here***](#)
+[***You can get your apiKey here***](#Contact-us)
 
 ## Collect Money
 [Collect limitation](#collect-limitation)
 
 ### Simple collection
-For example to request 2000 XOF from the ***+229510150181*** Mobile Money wallet, the following code can be used
+For example to request 2000 XOF from the ***+22951010591*** Mobile Money wallet, the following code can be used
 
-```javascript=
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=1&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520momo%2520%253D%2520require%28%27chipdeals-momo-api%27%29%253B%250Amomo.setApiKey%28%27test_FOdigzgSopV8GZggZa89%27%29%253B%250A%250Amomo%250A%2520%2520.collect%28%29%250A%2520%2520.amount%282000%29%250A%2520%2520.currency%28%27XOF%27%29%250A%2520%2520.from%28%2722951010591%27%29%250A%2520%2520.fistName%28%27Jean%27%29%250A%2520%2520.lastName%28%27Luc%27%29%250A%2520%2520.create%28transacrionReference%2520%253D%253E%2520console.log%28transacrionReference%29%29%253B%250A"
+  style="width: 862px; height: 360px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+<!--```javascript=
 const momo = require('chipdeals-momo-api');
 momo.setApiKey('test_FOdigzgSopV8GZggZa89');
 
@@ -65,35 +85,49 @@ momo
   .collect()
   .amount(2000)
   .currency('XOF')
-  .from('229510150181')
+  .from('22951010591')
   .fistName('Jean')
   .lastName('Luc')
   .create(transacrionReference => console.log(transacrionReference));
-```
+```-->
 
 ### Collect with a [webhook](#Webhook) to get response as soon as the payment is processed. 
 
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=4&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=momo%250A%2520%2520.collect%28%29%250A%2520%2520.amount%282000%29%250A%2520%2520.currency%28%27XOF%27%29%250A%2520%2520.from%28%2722951010591%27%29%250A%2520%2520.fistName%28%27Jean%27%29%250A%2520%2520.lastName%28%27Luc%27%29%250A%2520%2520.webhook%28%27https%253A%252F%252Fmydomain%252Fpayment-status%27%29%250A%2520%2520.create%28transacrionReference%2520%253D%253E%2520console.log%28transacrionReference%29%29%253B%250A"
+  style="width: 862px; height: 320px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+<!-- 
 ```javascript=4
 momo
   .collect()
   .amount(2000)
   .currency('XOF')
-  .from('229510150181')
+  .from('22951010591')
   .fistName('Jean')
   .lastName('Luc')
   .webhook('https://mydomain/payment-status')
   .create(transacrionReference => console.log(transacrionReference));
-```
+``` -->
+
 [*See webhook you get*](#Collectiton-state-changed-webhook-payload-sample)
 
 ### Make Collection using Callbacks. 
 
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=4&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=momo%250A%2520%2520.collect%28%29%250A%2520%2520.amount%282000%29%250A%2520%2520.currency%28%27XOF%27%29%250A%2520%2520.from%28%2722951010591%27%29%250A%2520%2520.fistName%28%27Jean%27%29%250A%2520%2520.lastName%28%27Luc%27%29%250A%2520%2520.create%28transacrionReference%2520%253D%253E%2520console.log%28transacrionReference%29%29%250A%2520%2520.onStatusChanged%28paymentData%2520%253D%253E%2520console.log%28paymentData%29%29%250A%2520%2520.onSuccess%28paymentData%2520%253D%253E%2520console.log%28paymentData%29%29%250A%2520%2520.onError%28paymentData%2520%253D%253E%2520console.error%28paymentData%29%29%253B%250A"
+  style="width: 862px; height: 360px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+<!-- 
 ```javascript=4
 momo
   .collect()
   .amount(2000)
   .currency('XOF')
-  .from('229510150181')
+  .from('22951010591')
   .fistName('Jean')
   .lastName('Luc')
   .create(transacrionReference => console.log(transacrionReference))
@@ -101,15 +135,22 @@ momo
   .onSuccess(paymentData => console.log(paymentData))
   .onError(paymentData => console.error(paymentData));
 ```
-
+ -->
 [*See what you receive as callback parametters*](#Collection-callback-data-sample)
 
 ## Disburse Money
 
 ### Simple Disbursement
 
-You can also send 2000 XOF to the ***+229510150181*** Mobile Money wallet, with the following code
+You can also send 2000 XOF to the ***+22951010591*** Mobile Money wallet, with the following code
 
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=1&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520momo%2520%253D%2520require%28%27chipdeals-momo-api%27%29%253B%250Amomo.setApiKey%28%27test_FOdigzgSopV8GZggZa89%27%29%253B%250A%250Amomo%250A%2520%2520.deposit%28%29%250A%2520%2520.amount%282000%29%250A%2520%2520.currency%28%27XOF%27%29%250A%2520%2520.to%28%2722951010591%27%29%250A%2520%2520.create%28transacrionReference%2520%253D%253E%2520console.log%28transacrionReference%29%29%253B%250A"
+  style="width: 862px; height: 320px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+<!-- 
 ```javascript=
 const momo = require('chipdeals-momo-api');
 momo.setApiKey('test_FOdigzgSopV8GZggZa89');
@@ -118,35 +159,49 @@ momo
   .deposit()
   .amount(2000)
   .currency('XOF')
-  .to('229510150181')
+  .to('22951010591')
   .create(transacrionReference => console.log(transacrionReference));
 ```
-
+ -->
 ### Disburse with a [webhook](#Webhook) to get response as soon as the deposit is processed. 
 
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=4&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=momo%250A%2520%2520.deposit%28%29%250A%2520%2520.amount%282000%29%250A%2520%2520.currency%28%27XOF%27%29%250A%2520%2520.to%28%2722951010591%27%29%250A%2520%2520.webhook%28%27https%253A%252F%252Fmydomain%252Fdeposit-status%27%29%250A%2520%2520.create%28transacrionReference%2520%253D%253E%2520console.log%28transacrionReference%29%29%253B%250A"
+  style="width: 862px; height: 280px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+<!-- 
 ```javascript=4
 momo
   .deposit()
   .amount(2000)
   .currency('XOF')
-  .to('229510150181')
+  .to('22951010591')
   .webhook('https://mydomain/deposit-status')
   .create(transacrionReference => console.log(transacrionReference));
-```
+``` -->
 [*See webhook you get*](#Disbursement-state-changed-webhook-payload-sample)
 
-### Make Disbursement using Callbacks. 
+### Make Disbursement using Callbacks.
 
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=4&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=momo%250A%2520%2520.deposit%28%29%250A%2520%2520.amount%282000%29%250A%2520%2520.currency%28%27XOF%27%29%250A%2520%2520.to%28%2722951010591%27%29%250A%2520%2520.create%28transacrionReference%2520%253D%253E%2520console.log%28transacrionReference%29%29%250A%2520%2520.onSuccess%28depositData%2520%253D%253E%2520console.log%28depositData%29%29%250A%2520%2520.onError%28depositData%2520%253D%253E%2520console.error%28depositData%29%29%253B%250A"
+  style="width: 862px; height: 300px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+<!-- 
 ```javascript=4
 momo
   .deposit()
   .amount(2000)
   .currency('XOF')
-  .to('229510150181')
+  .to('22951010591')
   .create(transacrionReference => console.log(transacrionReference))
   .onSuccess(depositData => console.log(depositData))
   .onError(depositData => console.error(depositData));
-```
+``` -->
 [*See what you receive as callback parametters*](#Disbursement-callback-data-sample)
 
 
@@ -154,6 +209,13 @@ momo
 
 Get status of a transaction of reference `dd1e2d17-5c21-4964-b58d-198fd2aac150`
 
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=1&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520momo%2520%253D%2520require%28%27chipdeals-momo-api%27%29%253B%250Amomo.setApiKey%28%27test_FOdigzgSopV8GZggZa89%27%29%253B%250A%250Aconst%2520reference%2520%253D%2520%2522dd1e2d17-5c21-4964-b58d-198fd2aac150%2522%253B%250Amomo%250A%2520%2520.status%28reference%29%250A%2520%2520.then%28%28transactionData%29%253D%253Econsole.log%28transactionData%29%29%250A"
+  style="width: 862px; height: 280px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+<!-- 
 ```javascript=
 const momo = require('chipdeals-momo-api');
 momo.setApiKey('test_FOdigzgSopV8GZggZa89');
@@ -162,7 +224,7 @@ const reference = "dd1e2d17-5c21-4964-b58d-198fd2aac150";
 momo
   .status(reference)
   .then((transactionData)=>console.log(transactionData))
-```
+``` -->
 
 <details>
   <summary>Collection transactionData Sample </summary>
@@ -174,7 +236,7 @@ momo
     "status": "success", 
     "statusMessageCode": 200,
     "statusMessage": "transaction successfully processed", 
-    "senderPhoneNumber": "22951010580", //Phonenumeber you speciy in your collection request
+    "senderPhoneNumber": "22951010591", //Phonenumeber you speciy in your collection request
     "senderFirstName": "Euler", //User firstname you specified in your collect request
     "senderLastName": "Dougbe", //User lastname you specified in your collect request
     "currency": "XOF", //Currency of the transaction. 
@@ -196,7 +258,7 @@ momo
     "status": "success", 
     "statusMessageCode": 200, 
     "statusMessage": "success", 
-    "recipientPhoneNumber": "22951010580", //Phone number you specify in your deposit request
+    "recipientPhoneNumber": "22951010591", //Phone number you specify in your deposit request
     "currency": "XOF", //Currency of the transaction. 
     "amount": 2000, //Amount of the transaction
     "senderOperator": "MTN", // Mobile Money wallet operator
@@ -210,7 +272,13 @@ momo
 ## Get Your balance
 
 Get your Chipdeals account's balance
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=1&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520momo%2520%253D%2520require%28%27chipdeals-momo-api%27%29%253B%250Amomo.setApiKey%28%27test_FOdigzgSopV8GZggZa89%27%29%253B%250A%250Amomo%250A%2520%2520.balance%28%29%250A%2520%2520.then%28%28balance%29%253D%253Econsole.log%28balance%29%29%250A"
+  style="width: 862px; height: 260px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
 
+<!-- 
 ```javascript=
 const momo = require('chipdeals-momo-api');
 momo.setApiKey('test_FOdigzgSopV8GZggZa89');
@@ -218,7 +286,7 @@ momo.setApiKey('test_FOdigzgSopV8GZggZa89');
 momo
   .balance()
   .then((balance)=>console.log(balance))
-```
+``` -->
 
 Balance is a `number`
 
@@ -267,7 +335,7 @@ Be sure to enable webhook retries on your dashboard. If we don't get a 200 statu
     "status": "success", 
     "statusMessageCode": 200,
     "statusMessage": "transaction successfully processed", 
-    "senderPhoneNumber": "22951010580", //Phonenumeber you speciy in your collection request
+    "senderPhoneNumber": "22951010591", //Phonenumeber you speciy in your collection request
     "senderFirstName": "Euler", //User firstname you specified in your collect request
     "senderLastName": "Dougbe", //User lastname you specified in your collect request
     "currency": "XOF", //Currency of the transaction. 
@@ -288,7 +356,7 @@ Be sure to enable webhook retries on your dashboard. If we don't get a 200 statu
     "status": "success", 
     "statusMessageCode": 200, 
     "statusMessage": "success", 
-    "recipientPhoneNumber": "22951010580", //Phone number you specify in your deposit request
+    "recipientPhoneNumber": "22951010591", //Phone number you specify in your deposit request
     "currency": "XOF", //Currency of the transaction. 
     "amount": 2000, //Amount of the transaction
     "senderOperator": "MTN", // Mobile Money wallet operator
@@ -323,7 +391,7 @@ All webhook payloads (except virtual card debits) follow the same basic structur
   "reference": "dd1e2d17-5c21-4964-b58d-198fd2aac150", 
   "statusMessageCode": 200,
   "statusMessage": "transaction successfully processed", 
-  "senderPhoneNumber": "22951010580", //Phonenumeber you speciy in your collection request
+  "senderPhoneNumber": "22951010591", //Phonenumeber you speciy in your collection request
   "senderFirstName": "Euler", //User firstname you specified in your collect request
   "senderLastName": "Dougbe", //User lastname you specified in your collect request
   "currency": "XOF", //Currency of the transaction. 
@@ -340,7 +408,7 @@ All webhook payloads (except virtual card debits) follow the same basic structur
   "reference": "dd1e2d17-5c21-4964-b58d-198fd2aac150", // reference of the transaction Chipdeas Momo Api
   "statusMessageCode": 200, 
   "statusMessage": "success", 
-  "recipientPhoneNumber": "22951010580", //Phone number you specify in your deposit request
+  "recipientPhoneNumber": "22951010591", //Phone number you specify in your deposit request
   "currency": "XOF", //Currency of the transaction. 
   "amount": 2000, //Amount of the transaction
   "senderOperator": "MTN", // Mobile Money wallet operator
@@ -372,8 +440,34 @@ All webhook payloads (except virtual card debits) follow the same basic structur
 | 5XX  | ⛔️ -- error    | An unknow error occured on the api                                 |
 
 
-# Limitation
-## Unsecured collect limitation
+## Sandbox tests
+
+You can use your `test apikey` or all users test apikey : `test_FOdigzgSopV8GZggZa89` to make sandbox requsts.
+
+For sandbox requests, only benin is available as country. So all phone number you add tou your request must have the prefix `229` and contain `8` number after the prefix.
+
+All valid phone number you used in sandbox will send you valid responses as it was the live mode.
+
+For exemple, if you use the phone number `22951010581` you will get a response with status message code `201` (what means `pending` see more [here](#Status-Message-Code)). Some seconds laters, you will get status messages codes `202`, `203` and `200` (`200` means success).
+
+It is the same thing for others phone number with a small exception to allow errors case handling by implementor.
+
+
+
+| Sandbox Phone number | -> final status message code |
+| -------------------- | ----------------------------:|
+| 22951010402          |                          402 |
+| 22951010403          |                          403 |
+| 22951010404          |                          404 |
+| 22951010460          |                          460 |
+| 22951010461          |                          461 |
+| 22951010462          |                          462 |
+| Any other valid      |                          200 |
+
+For **Live `apiKey`** and **Live Responses** requests **[Contact us](#Contact-us)**
+
+## Limitation
+### Unsecured collect limitation
 
 When you are making a collection request, you have posibility to specify or not the payer's fistname and lastname.
 By not specifying `firstName` and `lastName`, you can make quick test.
@@ -383,23 +477,49 @@ And you are alowed to perform at most 3 unsecured collection resquest per day. M
 
 You cannot perform unsecured collection request for more than 500 XOF.
 
-## Test apiKey limitation
+### Test apiKey limitation
 
 With test apiKey, you can make so many request you wish, but none will be connected to real user's wallet.
 
 To connect to user's wallet with test apiKey you must specify it when you initialize apikey.
 
 #### Sample Initialize user wallet connection with test apiKey
+
+<iframe
+  src="https://carbon.now.sh/embed?bg=rgba%28171%2C184%2C195%2C0%29&t=seti&wt=none&l=auto&width=680&ds=true&dsyoff=10px&dsblur=12px&wc=true&wa=true&pv=31px&ph=31px&ln=true&fl=1&fm=Fira+Code&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=const%2520momo%2520%253D%2520require%28%27chipdeals-momo-api%27%29%253B%250Amomo.setApiKey%28%250A%2520%2520%27test_FOdigzgSopV8GZggZa89%27%252C%250A%2520%2520%257B%2520enableTestRealWalletConnection%253A%2520true%2520%257D%250A%29%253B%250A"
+  style="width: 862px; height: 250px; border:0; transform: scale(1); overflow:hidden;"
+  sandbox="allow-scripts allow-same-origin">
+</iframe>
+
+<!-- 
 ```javascript=
 const momo = require('chipdeals-momo-api');
 momo.setApiKey(
   'test_FOdigzgSopV8GZggZa89',
   { enableTestRealWalletConnection: true }
 );
-```
+``` -->
 
 When you connect to real user wallet with test apiKey, you cannot perform any collection nor disbusement for more than 1 XOF. More than 1 XOF will just be blocked
 
+# Contact us
 
----
-Copyright (C) 2022 Chipdeals Inc
+### Call us or write us to [get your apikey](#Contact-us) and start getting payment
+
+<br/>
+
+E-mail: products@chipdeals.me
+Website: https://chipdeals.me
+Phone: +22990630401
+Whatsapp: +22990630401
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+#
+Copyright (C) 2022 Chipdeals Inc - https://chipdeals.me
